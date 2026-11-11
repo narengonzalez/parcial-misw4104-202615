@@ -1,59 +1,71 @@
 # Parcial Naren Gonzalez - MISW4104 - 202615 - ☕️ El aroma mágico
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Aplicación Angular para mostrar las variedades de café disponibles en la tienda "El aroma mágico". Los datos se obtienen por HTTP desde un [JSON publicado en un gist](https://gist.githubusercontent.com/josejbocanegra/e9d24db370ce95b75555f7d1f8691805/raw/8a26ac2bca4183dc88545e14c45851d698911358/202212_MISW4104_Grupo3.json) y se presentan en una tabla de Bootstrap junto con el número de cafés por tipo (café de origen y blend).
 
-## Development server
+Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) 22.2.6 usando `NgModule` (no standalone).
 
-To start a local development server, run:
+## Requisitos
 
-```bash
-ng serve
+- [Node.js](https://nodejs.org/) (LTS reciente; desarrollado con Node 22) y npm.
+- Conexión a internet: la app consulta el gist y carga las fuentes desde Google Fonts.
+
+## Cómo correr el proyecto
+
+1. Instalar dependencias:
+
+   ```bash
+   npm install
+   ```
+
+2. Levantar el servidor de desarrollo:
+
+   ```bash
+   npm start
+   ```
+
+   (equivale a `ng serve`). Abrir `http://localhost:4200/`; la app recarga sola al cambiar el código.
+
+3. Pruebas unitarias:
+
+   ```bash
+   npm test
+   ```
+
+4. Compilación de producción (genera `dist/ng-aroma-magico-parcial`):
+
+   ```bash
+   npm run build
+   ```
+
+## Estructura
+
+```
+src/app/
+├── app-module.ts            # Módulo raíz (importa CafeModule, provee HttpClient)
+├── app.ts / app.html / app.css   # Encabezado, banner, listado y pie de página
+└── cafe/
+    ├── cafe-module.ts       # Módulo de cafés
+    ├── cafe.ts              # Clase Cafe
+    ├── cafe-service.ts      # Servicio HTTP (CafeService.getCafes())
+    └── cafe-list/           # Componente app-cafe-list (tabla, totales y su prueba)
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Actividades realizadas
 
-## Code scaffolding
+| # | Actividad | Descripción |
+|---|-----------|-------------|
+| 1 | Proyecto base | Proyecto Angular con `NgModule` y routing. |
+| 2 | Bootstrap | Instalación de `bootstrap` y registro de su CSS en `angular.json`. |
+| 3 | Módulo de cafés | `CafeModule`, importado en `AppModule`. |
+| 4 | Clase `Cafe` | Atributos: `id`, `nombre`, `tipo`, `region`, `sabor`, `altura`, `imagen`. |
+| 5 | Servicio | `CafeService` con `HttpClient`; `provideHttpClient()` en `AppModule`. |
+| 6 | Componente listar | `CafeList` (`app-cafe-list`) con tabla Bootstrap (#, nombre, tipo, región). `cafes` es un *signal*, ya que la app no usa `zone.js`. |
+| 7 | Diseño | Encabezado, banner y pie de página según el mockup. |
+| 8 | Totales | Párrafos "Total café de origen" y "Total café blend", calculados con `computed` a partir del listado. |
+| 9 | Pruebas | Prueba de `CafeList` con 3 cafés: verifica 3 filas más el encabezado (4 `tr`), el contenido de las celdas y los totales. |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Fuentes (Google Fonts)
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Inder**: fuente base de la aplicación.
+- **Inter**: tabla y totales.
+- **Inria Sans**: pie de página.
