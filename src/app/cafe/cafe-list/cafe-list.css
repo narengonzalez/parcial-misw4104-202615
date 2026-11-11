@@ -1,5 +1,19 @@
 .cafe-table {
-  font-size: 0.8rem;
-  width: auto;
-  min-width: 60%;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  max-width: 792px;
+  margin-left: 98px;
+}
+
+.cafe-table tr>th{
+  width: 23px;
+}
+
+.totales {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 20px;
+  margin-left: 98px;
+  margin-top: 0;
+  margin-bottom: 0;
 }

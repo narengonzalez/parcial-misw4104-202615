@@ -1,0 +1,31 @@
+body{
+  padding-left: 100px;
+}
+
+header {
+  width: 1244px;
+  height: 405px;
+  opacity: 1;
+  gap: 17px;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.titulo {
+  font-size: 36px;
+  font-weight: 300;
+  margin: 0;
+  font-family: 'Inder', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.banner {
+  display: block;
+  width: 1067px;
+  height: 294px;
+}
+
+footer {
+  font-family: 'Inria Sans', system-ui, sans-serif;
+  font-size: 18px;
+}
+
